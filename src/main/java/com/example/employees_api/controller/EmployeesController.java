@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import com.example.employees_api.models.Departaments;
+import com.example.employees_api.models.Departments;
 
 import com.example.employees_api.models.Employee;
-import com.example.employees_api.repos.DepartamentsRepository;
+import com.example.employees_api.repos.DepartmentsRepository;
 import com.example.employees_api.repos.EmployeeRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +27,7 @@ public class EmployeesController {
     private EmployeeRepository employeeRepository;
 
     @Autowired
-    private DepartamentsRepository departamentsRepository;
+    private DepartmentsRepository departmentsRepository;
 
     @GetMapping("/")
     public String hello()
@@ -41,24 +41,24 @@ public class EmployeesController {
         return employeeRepository.findAll();
     }
 
-    @GetMapping("/departaments")
-    public @ResponseBody Iterable<Departaments> getAllDepartaments()
+    @GetMapping("/departments")
+    public @ResponseBody Iterable<Departments> getAllDepartaments()
     {
-        return departamentsRepository.findAll();
+        return departmentsRepository.findAll();
     }
 
 
     
     //Metodo para mostrar los empleados de acuerdo a su departamento <<Se tuvo que cambiar el campo de employee en la base de datos sin el "_"
-   @GetMapping("/departaments/employees")
-    public ResponseEntity <List<Employee>> getAllEmployees(@RequestParam(required = false) Integer departament_id)
+   @GetMapping("/departments/employees")
+    public ResponseEntity <List<Employee>> getAllEmployees(@RequestParam(required = false) Integer department_id)
     {
         List<Employee> employees = new ArrayList<Employee>();
 
-        if(departament_id == null)
+        if(department_id == null)
             employeeRepository.findAll().forEach(employees::add);
         else
-            employeeRepository.findBydepartamentid(departament_id).forEach(employees::add);
+            employeeRepository.findBydepartmentid(department_id).forEach(employees::add);
         
         if (employees.isEmpty())
         {

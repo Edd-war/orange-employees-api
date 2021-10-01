@@ -11,9 +11,9 @@ import javax.persistence.Table;
 import lombok.Data;
 
 @Entity
-@Table(name = "departament")
+@Table(name = "department")
 @Data
-public class Departaments {
+public class Departments {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Integer id;

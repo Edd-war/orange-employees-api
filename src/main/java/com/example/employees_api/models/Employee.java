@@ -16,82 +16,72 @@ public class Employee{
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(name = "first_name")
+    // @Column(name = "first_name")
     private String first_name;
     private String last_name;
     private char gender;
     private Date birth_date;
+    private Date hire_date;
     private boolean active;
     private String photo;
-    private int departamentid;
+    @Column(name="department_id") //ESTE ES EL NOMBRE REAL EN LA BASE DE DATOS, Si no se pone esta línea entonces se creará un atributo con  el nombre siguiente
+    private int departmentid;       //AQUÍ NO SE COLOCÓ EL _ (GUIÓ BAJO) POR QUE EL ORM NO LOS ACEPTA ASÍ
 
-
+    
     public Integer getId() {
-        return this.id;
+        return id;
     }
-
     public void setId(Integer id) {
         this.id = id;
     }
-
     public String getFirst_name() {
-        return this.first_name;
+        return first_name;
     }
-
     public void setFirst_name(String first_name) {
         this.first_name = first_name;
     }
-
     public String getLast_name() {
-        return this.last_name;
+        return last_name;
     }
-
     public void setLast_name(String last_name) {
         this.last_name = last_name;
     }
-
     public char getGender() {
-        return this.gender;
+        return gender;
     }
-
     public void setGender(char gender) {
         this.gender = gender;
     }
-
     public Date getBirth_date() {
-        return this.birth_date;
+        return birth_date;
     }
-
     public void setBirth_date(Date birth_date) {
         this.birth_date = birth_date;
     }
-
+    public Date getHire_date() {
+        return hire_date;
+    }
+    public void setHire_date(Date hire_date) {
+        this.hire_date = hire_date;
+    }
     public boolean isActive() {
-        return this.active;
+        return active;
     }
-
-    public boolean getActive() {
-        return this.active;
-    }
-
     public void setActive(boolean active) {
         this.active = active;
     }
-
     public String getPhoto() {
-        return this.photo;
+        return photo;
     }
-
     public void setPhoto(String photo) {
         this.photo = photo;
     }
-
-    public int getDepartamentid() {
-        return this.departamentid;
+    public int getDepartmentid() {
+        return departmentid;
     }
-
-    public void setDepartamentid(int departamentid) {
-        this.departamentid = departamentid;
+    public void setDepartmentid(int departmentid) {
+        this.departmentid = departmentid;
     }
+    
 
 }
