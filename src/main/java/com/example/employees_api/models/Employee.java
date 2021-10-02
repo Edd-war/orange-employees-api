@@ -19,7 +19,7 @@ public class Employee{
     // @Column(name = "first_name")
     private String first_name;
     private String last_name;
-    private char gender;
+    private String gender;
     private Date birth_date;
     private Date hire_date;
     private boolean active;
@@ -46,10 +46,10 @@ public class Employee{
     public void setLast_name(String last_name) {
         this.last_name = last_name;
     }
-    public char getGender() {
+    public String getGender() {
         return gender;
     }
-    public void setGender(char gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
     public Date getBirth_date() {
